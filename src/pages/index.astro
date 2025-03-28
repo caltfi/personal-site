@@ -1,15 +1,40 @@
 ---
+import BaseLayout from '../layouts/baseLayout.astro';
+const pageTitle = 'Calum Fenton';
 ---
+<BaseLayout pageTitle={pageTitle}>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Calum Fenton</title>
-  </head>
-  <body>
-    <h1>Calum Fenton's Portfolio Site</h1>
-  </body>
-</html>
+	<div class="container col-xxl-8 px-4 py-5 pt-md-5 pt-3">
+        <div class="row flex-lg-row-reverse align-items-center g-5">
+			
+          <div class="col-12 col-lg-8 px-0 mt-2 mt-lg-0">
+            <div id="cube-container" class="w-100" style="height: 70vh; max-height: 750px;"></div>
+          </div>
+
+          <div class="col-12 col-lg-4 d-none d-lg-block">
+            <h1 class="display-2 fw-bold text-body-emphasis lh-1 mb-3">&#128075; Hi, I'm Calum!</h1>
+            <p class="lead">Hi, my name is Calum! I am a full-stack developer and UI/UX designer based in Cork, Ireland! I provide creative solutions for UI/UX design and web-development. Please check out my portfolio!</p>
+            
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a href="./portfolio/index.html" class="btn btn-dark btn-lg px-4 me-md-2" id="portfolio-button">My Portfolio</a>
+              <a href="./about/index.html" class="btn btn-outline-secondary btn-lg px-4" id="about-button">About Me</a>
+            </div>
+	
+          </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+        body{
+            font-family: 'Hanken Grotesk', Helvetica, sans-serif;
+            background-color: rgb(240, 255, 255);
+        }
+        @media (max-width: 991px) {
+          body, html {
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+          }
+        }
+</style>
