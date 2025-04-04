@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../layouts/baseLayout.astro";
+const pageTitle = "Cube in Three.js";
+---
+<BaseLayout pageTitle={pageTitle}>
+
+    <div id="cube-game-container" class="w-100 projectDiv"></div>
+    <script src="../../scripts/cubegame.js" ></script>
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
+
+</BaseLayout>

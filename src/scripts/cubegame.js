@@ -3,7 +3,7 @@ import * as THREE from 'three';
 const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
 
-const container = document.getElementById('cube-container');
+const container = document.getElementById('cube-game-container');
 const camera = new THREE.PerspectiveCamera(
   60,
   container.clientWidth / container.clientHeight,
@@ -43,48 +43,38 @@ scene.add(shadowPlane);
 
 
 //Texture Loading for Cube
-let highlightedFaceIndex = null;
-const materials = [
-    new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/work.png') }),   //0
-    new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/about.png') }),     //1
-    new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/work.png') }),       //2
-    new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/about.png') }),      //3
-    new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/laptop_cube.png') }), //4 (front)
-    new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/about.png') })    //5 (back)
-  ];
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
+// let highlightedFaceIndex = null;
+// const raycaster = new THREE.Raycaster();
+// const mouse = new THREE.Vector2();
 // Face-index-to-link mapping
-const faceLinks = {
-    0: "/work/",
-    1: "/about/",
-    2: "/work/",
-    3: "/about/",
-    4: "/work/",
-    5: "/about/"
-};
+// const faceLinks = {
+//     0: "https://www.calumfenton.com/portfolio/index.html",
+//     1: "https://www.calumfenton.com/contact/index.html",
+//     2: "https://www.calumfenton.com/about/index.html",
+//     3: "https://www.calumfenton.com/resume/index.html"
+// };
 
 
 //================EVENT LISTENERS=============================
 
 //click event for links of cube
-window.addEventListener('click', (event) => {
-    // Normalize mouse position [-1, 1]
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+// window.addEventListener('click', (event) => {
+//     // Normalize mouse position [-1, 1]
+//     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+//     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
   
-    raycaster.setFromCamera(mouse, camera);
+//     raycaster.setFromCamera(mouse, camera);
   
-    const intersects = raycaster.intersectObject(cube, true);
+//     const intersects = raycaster.intersectObject(cube, true);
   
-    if (intersects.length > 0) {
-      const faceIndex = Math.floor(intersects[0].faceIndex / 2);
-      const link = faceLinks[faceIndex];
-      if (link) {
-        window.location.href = link;
-      }
-    }
-  });
+//     if (intersects.length > 0) {
+//       const faceIndex = Math.floor(intersects[0].faceIndex / 2);
+//       const link = faceLinks[faceIndex];
+//       if (link) {
+//         window.location.href = link;
+//       }
+//     }
+//   });
 
 
 document.addEventListener('mousemove', (event) => {
@@ -96,7 +86,6 @@ document.addEventListener('mousemove', (event) => {
   
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObject(cube, true);
-
     
     if (intersects.length > 0) {
       const faceIndex = Math.floor(intersects[0].faceIndex / 2);
@@ -163,7 +152,8 @@ container.appendChild(renderer.domElement);
 
 //Cube Geometry
 const geometry = new THREE.BoxGeometry();
-const cube = new THREE.Mesh(geometry, materials);
+const material = new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/laptop_cube.png') });
+const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 camera.position.z = 2.3;
