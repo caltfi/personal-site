@@ -1,192 +1,80 @@
 import * as THREE from 'three';
-
 const scene = new THREE.Scene();
+scene.background = new THREE.Color().setHex( 0x112233 );
 const loader = new THREE.TextureLoader();
-
 const container = document.getElementById('cube-game-container');
-const camera = new THREE.PerspectiveCamera(
-  60,
-  container.clientWidth / container.clientHeight,
-  0.1,
-  1000
-);
-
-//mousemove controls
-let mouseX = 0;
-let mouseY = 0;
-let userInteracting = false;
-let mouseMoveTimeout;
-//touch controls
-let touchStartX = 0;
-let touchStartY = 0;
-
-const shadowTexture = loader.load('/assets/images/shadow.png');
-
-const shadowMaterial = new THREE.MeshBasicMaterial({
-  map: shadowTexture,
-  transparent: true,
-  opacity: 0.3,
-  depthWrite: false // optional: makes it always render under cube
-});
-
-const shadowPlane = new THREE.Mesh(
-  new THREE.PlaneGeometry(2.2, 2.2),
-  shadowMaterial
-);
-// Rotate it slightly upward
-shadowPlane.rotation.x = -Math.PI / 3.5; // ~-51.4 degrees — tweak as needed
-
-// Move it back and down a bit
-shadowPlane.position.z = -0.6;
-shadowPlane.position.y = -0.4; // just beneath the cube
-scene.add(shadowPlane);
-
-
-//Texture Loading for Cube
-// let highlightedFaceIndex = null;
-// const raycaster = new THREE.Raycaster();
-// const mouse = new THREE.Vector2();
-// Face-index-to-link mapping
-// const faceLinks = {
-//     0: "https://www.calumfenton.com/portfolio/index.html",
-//     1: "https://www.calumfenton.com/contact/index.html",
-//     2: "https://www.calumfenton.com/about/index.html",
-//     3: "https://www.calumfenton.com/resume/index.html"
-// };
-
-
-//================EVENT LISTENERS=============================
-
-//click event for links of cube
-// window.addEventListener('click', (event) => {
-//     // Normalize mouse position [-1, 1]
-//     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-//     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-  
-//     raycaster.setFromCamera(mouse, camera);
-  
-//     const intersects = raycaster.intersectObject(cube, true);
-  
-//     if (intersects.length > 0) {
-//       const faceIndex = Math.floor(intersects[0].faceIndex / 2);
-//       const link = faceLinks[faceIndex];
-//       if (link) {
-//         window.location.href = link;
-//       }
-//     }
-//   });
-
-
-document.addEventListener('mousemove', (event) => {
-    //detect user movement
-    userInteracting = true;
-
-    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-  
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObject(cube, true);
-    
-    if (intersects.length > 0) {
-      const faceIndex = Math.floor(intersects[0].faceIndex / 2);
-
-          // Highlight hovered face (any face)
-        if (highlightedFaceIndex !== faceIndex) {
-            if (highlightedFaceIndex !== null) {
-                cube.material[highlightedFaceIndex].color.set(0xffffff); // reset old
-            }
-            cube.material[faceIndex].color.set(0xfdfd96); //tint colour
-            highlightedFaceIndex = faceIndex;
-        }
-
-      if (faceLinks[faceIndex]) {
-        document.body.style.cursor = "pointer";
-      } else {
-        document.body.style.cursor = "default";
-      }
-    } else {
-        // No intersection: reset highlight and cursor
-        if (highlightedFaceIndex !== null) {
-            cube.material[highlightedFaceIndex].color.set(0xffffff);
-            highlightedFaceIndex = null;
-        }
-        document.body.style.cursor = "default";
-    }
-
-    //reset timeout to revert to idle mode
-    clearTimeout(mouseMoveTimeout);
-    mouseMoveTimeout = setTimeout(() => {
-      userInteracting = false;
-      mouseX = 0;
-      mouseY = 0;
-    }, 1000);
-  });
-
-  container.addEventListener('touchstart', (event) => {
-    const touch = event.touches[0];
-    touchStartX = touch.clientX;
-    touchStartY = touch.clientY;
-    userInteracting = true;
-  });
-  
-  container.addEventListener('touchmove', (event) => {
-    const touch = event.touches[0];
-    const deltaX = touch.clientX - touchStartX;
-    const deltaY = touch.clientY - touchStartY;
-  
-    // Normalize values to [-1, 1]
-    mouseX = deltaX / window.innerWidth;
-    mouseY = deltaY / window.innerHeight;
-  
-    clearTimeout(mouseMoveTimeout);
-    mouseMoveTimeout = setTimeout(() => {
-      userInteracting = false;
-      mouseX = 0;
-      mouseY = 0;
-    }, 1000);
-  });
-
+const w = container.clientWidth;
+const h = container.clientHeight;
+const camera = new THREE.PerspectiveCamera(60, w/h, 0.1, 1000);
+camera.position.z = 2.3;
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setSize(w, h);
 container.appendChild(renderer.domElement);
+
+// //mousemove controls
+// let mouseX = 0;
+// let mouseY = 0;
+// let userInteracting = false;
+// let mouseMoveTimeout;
+// //touch controls
+// let touchStartX = 0;
+// let touchStartY = 0;
 
 //Cube Geometry
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ map: loader.load('/assets/images/laptop_cube.png') });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+const materials = [
+    new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xffffff ) }),   //0
+    new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xffffff ) }),     //1
+    new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xffffff ) }),       //2
+    new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xffffff ) }),      //3
+    new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xffffff ) }), //4 (front)
+    new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xffffff ) })    //5 (back)
+  ];
+let currentFace = 0;
+materials.forEach((face, index) => {
+    console.log(
+        `FACE NUMBER ${index} - COLOUR: RGB(${((face.color.r)*100).toFixed()},${((face.color.g)*100).toFixed()},${((face.color.b)*100).toFixed()}) - CURRENT FACE IS ${currentFace}`
+        );
+    currentFace++
+});
 
-camera.position.z = 2.3;
+// for (let i = 0; i < materials.length; i++) {
+//     materials[i] = new THREE.MeshBasicMaterial({ color: new THREE.Color().setHex( 0xf94949 ) });
+//     console.log(
+//         `COLOUR: RGB(${materials[i].color.r},${materials[i].color.g},${materials[i].color.b})`
+//         );
+// }
+const cube = new THREE.Mesh(geometry, materials);
+scene.add(cube);
 
 //Animate
 function animate() {
     requestAnimationFrame(animate);
-  
-    if(userInteracting)
-    {
-        const targetY = mouseX * Math.PI * 3;
-        const targetX = -mouseY * Math.PI * 1.5;
 
-        cube.rotation.y += (targetY - cube.rotation.y) * 0.03;
-        cube.rotation.x += (targetX - cube.rotation.x) * 0.03;
-    }
-    else
-    {
-        cube.rotation.x += 0.003;
-        cube.rotation.y += 0.003;
-    }
-  
+    // if(userInteracting)
+    // {
+    //     const targetY = mouseX * Math.PI * 3;
+    //     const targetX = -mouseY * Math.PI * 1.5;
+
+    //     cube.rotation.y += (targetY - cube.rotation.y) * 0.03;
+    //     cube.rotation.x += (targetX - cube.rotation.x) * 0.03;
+    // }
+    // else
+    // {
+    //     cube.rotation.x += 0.003;
+    //     cube.rotation.y += 0.003;
+    // }
+
+    cube.rotation.x += 0.003;
+    cube.rotation.y += 0.003;
+
     renderer.render(scene, camera);
-  }
-  animate();
+}
+animate();
   
-
 //Handle resize
 window.addEventListener('resize', () => {
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
+    renderer.setSize(w, h);
+    camera.aspect = w/h;
     camera.updateProjectionMatrix();
   });
-  

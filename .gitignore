@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# works in progress
+./src/pages/work/cube.astro
+.src/scripts/cubegame.js
