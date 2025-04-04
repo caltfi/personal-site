@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/baseLayout.astro';
-import Cube from '../components/cube.astro';
 const pageTitle = 'Calum Fenton';
 ---
 <BaseLayout pageTitle={pageTitle}>
@@ -9,7 +8,8 @@ const pageTitle = 'Calum Fenton';
         <div class="row flex-lg-row-reverse align-items-center g-5">
 			
           <div class="col-12 col-lg-8 px-0 mt-2 mt-lg-0">
-			<Cube />
+            <div id="cube-container" class="w-100" style="height: 70vh; max-height: 750px;"></div>
+            <script src="../scripts/cube.js" ></script>
           </div>
 
           <div class="col-12 col-lg-4 d-none d-lg-block">

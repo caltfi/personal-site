@@ -1,10 +1,15 @@
 ---
 import BaseLayout from "../../layouts/baseLayout.astro";
-import Planet from "../../components/planet.astro";
 const pageTitle = "Planet in Three.js";
 ---
 <BaseLayout pageTitle={pageTitle}>
 
-    <Planet />
+    <div id="planet-container" class="w-100 projectDiv"></div>
+    <script src="../../scripts/planet.js" ></script>
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
 
 </BaseLayout>

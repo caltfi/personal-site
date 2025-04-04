@@ -3,3 +3,7 @@
 body{
     font-family: 'Hanken Grotesk', Helvetica, sans-serif;
 }
+
+.projectDiv{
+    height: 100vh;
+}
