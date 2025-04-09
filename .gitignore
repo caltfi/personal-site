@@ -24,7 +24,7 @@ pnpm-debug.log*
 .idea/
 
 # works in progress
-./src/pages/work/cube.astro
-./src/scripts/cubegame.js
-./src/pages/work/lavalamp.astro
-./src/scripts/lavalamp.js
+src/pages/work/cube.astro
+src/scripts/cubegame.js
+src/pages/work/lavalamp.astro
+src/scripts/lavalamp.js
