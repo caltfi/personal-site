@@ -26,3 +26,5 @@ pnpm-debug.log*
 # works in progress
 ./src/pages/work/cube.astro
 ./src/scripts/cubegame.js
+./src/pages/work/lavalamp.astro
+./src/scripts/lavalamp.js
