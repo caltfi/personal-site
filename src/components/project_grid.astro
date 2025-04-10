@@ -2,17 +2,8 @@
 import json from '../json/projects.json';
 import ProjectCard from './project_card.astro';
 ---
-<style>
-    #project-grid{
-        display:grid;
-        height:100vh;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        grid-gap: 3px;
-    }
-</style>
-<div id="project-grid">
+<div class="project-grid">
     {json.map((i) => (
-        <ProjectCard textContent={i.text} imgBackground={i.img} />
+        <ProjectCard textContent={i.text} imgBackground={i.img} linkURL={i.url}/>
     ))}
 </div>

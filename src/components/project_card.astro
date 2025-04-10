@@ -1,5 +1,9 @@
 ---
-const { textContent, imgBackground } = Astro.props;
+const { textContent, imgBackground, linkURL } = Astro.props;
 ---
 
-<div class='portfolio-card' style=`background-image: url('${imgBackground}');`>{textContent}</div>
+<div onclick=`location.href='${linkURL}';` class='project-card' style=`background-image: url('${imgBackground}');`>
+    <div class="overlay">
+        <h4>{textContent}</h4>
+    </div>
+</div>
