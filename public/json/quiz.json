@@ -1,0 +1,26 @@
+[
+    {
+        "question": "What makes a woof sound?",
+        "answers": [
+            {"text": "Dog", "value": true},
+            {"text": "Cat", "value": false},
+            {"text": "Fish", "value": false}
+        ]
+    },
+    {
+        "question": "What is the capital city of France?",
+        "answers": [
+            {"text": "London", "value": false},
+            {"text": "Paris", "value": true},
+            {"text": "Berlin", "value": false}
+        ]
+    },
+    {
+        "question": "When was the battle of Hastings fought?",
+        "answers": [
+            {"text": "1066", "value": true},
+            {"text": "1945", "value": false},
+            {"text": "1789", "value": false}
+        ]
+    }
+]

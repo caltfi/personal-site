@@ -1,9 +1,9 @@
 ---
-const { textContent, imgBackground, linkURL } = Astro.props;
+const { textContent, imgBackground, linkURL, isLight } = Astro.props;
 ---
 
-<div onclick=`location.href='${linkURL}';` class='project-card' style=`background-image: url('${imgBackground}');`>
-    <div class="overlay">
+<div onclick=`location.href='${linkURL}';` class={isLight ? 'project-card-light' : 'project-card'} style=`background-image: url('${imgBackground}');`>
+    <div class={isLight ? 'overlay-light' : 'overlay'}>
         <h4>{textContent}</h4>
     </div>
 </div>

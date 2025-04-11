@@ -4,6 +4,6 @@ import ProjectCard from './project_card.astro';
 ---
 <div class="project-grid">
     {json.map((i) => (
-        <ProjectCard textContent={i.text} imgBackground={i.img} linkURL={i.url}/>
+        <ProjectCard textContent={i.text} imgBackground={i.img} linkURL={i.url} isLight={i.light} />
     ))}
 </div>

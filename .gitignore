@@ -33,3 +33,5 @@ src/pages/work/lavalamp.astro
 src/scripts/lavalamp.js
 src/pages/work/quiz.astro
 src/scripts/quiz.js
+src/pages/work/quiz.astro
+src/scripts/quiz.js
