@@ -58,3 +58,28 @@ body{
     opacity: 1;
     transform: translateY(0);
 }
+
+/* quiz project */
+#blackboard{
+    width: 500px;
+    height: 300px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    border: 1rem inset khaki;
+    border-radius: 1%;
+}
+#blackboard-text{
+    font-family: Courier;
+}
+#score-display, #restart-button, .answer-button{
+    border: solid black;
+    border-radius: 5%;
+}
+#feedback{
+    background-image: url('/assets/images/speechbubble.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; 
+}
