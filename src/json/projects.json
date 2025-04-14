@@ -10,5 +10,11 @@
     "img": "/assets/images/project_cards/quiz_card.jpg",
     "url": "/work/quiz",
     "light": true
+},
+{
+    "text": "Lava-Lamp with Anime.js",
+    "img": "/assets/images/project_cards/lavalamp_card.jpg",
+    "url": "/work/lavalamp",
+    "light": true
 }
 ]

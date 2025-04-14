@@ -87,7 +87,7 @@ window.addEventListener('click', (event) => {
   });
 
 
-document.addEventListener('mousemove', (event) => {
+container.addEventListener('mousemove', (event) => {
     //detect user movement
     userInteracting = true;
 
@@ -96,7 +96,6 @@ document.addEventListener('mousemove', (event) => {
   
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObject(cube, true);
-
     
     if (intersects.length > 0) {
       const faceIndex = Math.floor(intersects[0].faceIndex / 2);
@@ -174,11 +173,8 @@ function animate() {
   
     if(userInteracting)
     {
-        const targetY = mouseX * Math.PI * 3;
-        const targetX = -mouseY * Math.PI * 1.5;
-
-        cube.rotation.y += (targetY - cube.rotation.y) * 0.03;
-        cube.rotation.x += (targetX - cube.rotation.x) * 0.03;
+        cube.rotation.y += ((mouseX * Math.PI * 3) - cube.rotation.y) * 0.03;
+        cube.rotation.x += ((mouseY * Math.PI * 1.5) - cube.rotation.x) * 0.03;
     }
     else
     {
