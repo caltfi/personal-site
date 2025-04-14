@@ -4,6 +4,20 @@ body{
     font-family: 'Hanken Grotesk', Helvetica, sans-serif;
 }
 
+/* About Me */
+#profile-pic{
+    transition: all 0.5s ease-in-out;
+    max-height: 400px;
+}
+#profile-pic:hover{
+    box-shadow: 11px 20px 21px -4px rgba(0,0,0,0.65);
+    -webkit-box-shadow: 11px 20px 21px -4px rgba(0,0,0,0.65);
+    -moz-box-shadow: 11px 20px 21px -4px rgba(0,0,0,0.65);
+    transform: rotate(10deg);
+    max-height: 500px;
+}
+
+/* My Work */
 .project-grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, 250px);
@@ -100,7 +114,87 @@ body{
     transform: translateY(0);
 }
 
-/* quiz project */
+/* ============================== */
+/*       INDIVIDUAL PROJECTS      */
+/* ============================== */
+
+/* Quiz project */
+#quiz-container{
+    background-image: url('/assets/images/quiz_game/classroom.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat;   
+    display: grid;
+    grid-template-columns: minmax(150px, 40%) 1fr;
+    height: 100vh;
+}
+#q-a-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 5% 10%;
+}
+#blackboard{
+    width: 500px;
+    height: 300px;
+    background-color: black;
+    color: white;
+    font-family: "Gochi Hand";
+    text-align: center;
+    align-content: center;
+    border: 1rem inset khaki;
+    border-radius: 1%;
+    margin: 10%;
+    padding: 0 5%;
+    box-shadow: 5px 5px 0px 0px black;
+}
+#character-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(150px, 35%) 1fr;
+    height: 75%;
+    bottom: -10%;
+    position: relative;
+    padding-left: 10%;
+}
+#speech-bubble{
+    grid-column: 2 / 5;
+
+    background-image: url('/assets/images/quiz_game/speechbubble.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; 
+    text-align: center;
+    align-content: center;
+    padding-bottom: 15%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+#teacher{
+    grid-column: 1 / 4;
+    
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;   
+}
+
+@media(max-width:800px){
+    #quiz-container{
+        display:flex;
+        flex-flow: column-reverse;
+    }
+    #character-container{
+        height: 64%;
+        width: 69.0%;
+        bottom: 25%;
+        padding-left: 5%;
+    }
+    #q-a-container{
+        height:80%;
+        grid-template-rows: 70% 20% 10%;
+    }
+}
+
 .button-54 {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -130,17 +224,22 @@ body{
     }
 }
 #buttons-container > button{
-    margin: 2%;
-    width:25%;
+    margin: 10%;
+    width:150%;
 }
 #buttons-container{
     display:flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
+
 }
 
 .angry{
     animation: shake .13s 3;
+}
+
+.happy{
+    animation: jump .13s 3;
 }
 
 @keyframes shake{
@@ -158,5 +257,17 @@ body{
     }
     100% {
         transform: translateX(-10px);
+    }
+}
+
+@keyframes jump{
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
     }
 }
