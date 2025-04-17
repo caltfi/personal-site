@@ -31,7 +31,12 @@ src/pages/work/cube.astro
 src/scripts/cubegame.js
 src/pages/work/lavalamp.astro
 src/scripts/lavalamp.js
+src/scripts/lavalamp1.js
 src/pages/work/quiz.astro
 src/scripts/quiz.js
 src/pages/work/quiz.astro
 src/scripts/quiz.js
+src/pages/work/microbes.astro
+src/scripts/microbes.js
+src/pages/work/clocks.astro
+src/scripts/clocks.js
