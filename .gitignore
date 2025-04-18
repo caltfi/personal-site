@@ -29,9 +29,6 @@ public/assets/images/
 # works in progress
 src/pages/work/cube.astro
 src/scripts/cubegame.js
-src/pages/work/lavalamp.astro
-src/scripts/lavalamp.js
-src/scripts/lavalamp1.js
 src/pages/work/quiz.astro
 src/scripts/quiz.js
 src/pages/work/quiz.astro

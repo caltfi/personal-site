@@ -6,15 +6,57 @@
     "light": false
 },
 {
-    "text": "Quiz made with JavaScript",
+    "text": "Lava-Lamp with Anime.js",
+    "img": "/assets/images/project_cards/lavalamp_card.jpg",
+    "url": "/work/lavalamp",
+    "light": true
+},
+{
+    "text": "Quiz with JavaScript",
     "img": "/assets/images/project_cards/quiz_card.jpg",
     "url": "/work/quiz",
     "light": true
 },
 {
-    "text": "Lava-Lamp with Anime.js",
-    "img": "/assets/images/project_cards/lavalamp_card.jpg",
-    "url": "/work/lavalamp",
+    "text": "Real-Time World Clocks",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/clocks",
+    "light": true
+},
+{
+    "text": "Microscope Simulator",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Ant Farm",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Solitaire",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Napoleonic Map",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Fossil Digging Game",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "D3 Project Statistics",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
     "light": true
 }
 ]
