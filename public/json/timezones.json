@@ -1,0 +1,86 @@
+[
+    { 
+        "name": "Dublin",
+        "zone": "Europe/Dublin",
+        "utc": "+1",
+        "id": "flag-btn-ie",
+        "flag": "&#127470;&#127466;"
+    },
+    { 
+        "name": "London",
+        "zone": "Europe/London",
+        "utc": "+1",
+        "id": "flag-btn-gb",
+        "flag": "&#127468;&#127463;"
+    },
+    { 
+        "name": "Paris",
+        "zone": "Europe/Paris",
+        "utc": "+2",
+        "id": "flag-btn-fr",
+        "flag": "&#127467;&#127479;"
+    },
+    { 
+        "name": "Berlin",
+        "zone": "Europe/Berlin",
+        "utc": "+2",
+        "id": "flag-btn-de",
+        "flag": "&#127465;&#127466;"
+    },
+    {
+        "name": "Mexico City",
+        "zone": "America/Mexico_City",
+        "utc": "-6",
+        "id": "flag-btn-mx",
+        "flag": "&#127474;&#127485;"
+    },
+    {
+        "name": "São Paulo",
+        "zone": "America/Sao_Paulo",
+        "utc": "-3",
+        "id": "flag-btn-br",
+        "flag": "&#127463;&#127479;"
+    },
+    { 
+        "name": "New-York",
+        "zone": "America/New_York",
+        "utc": "-4",
+        "id": "flag-btn-usa",
+        "flag": "&#127482;&#127480;"
+    },
+    { 
+        "name": "Shanghai",
+        "zone": "Asia/Shanghai",
+        "utc": "+8",
+        "id": "flag-btn-cn",
+        "flag": "&#127464;&#127475;"
+    },
+    { 
+        "name": "Hong-Kong",
+        "zone": "Asia/Hong_Kong",
+        "utc": "+8",
+        "id": "flag-btn-hk",
+        "flag": "&#127469;&#127472;"
+    },
+    { 
+        "name": "Mumbai",
+        "zone": "Asia/Kolkata",
+        "utc": "+5:30",
+        "id": "flag-btn-in",
+        "flag": "&#127470;&#127475;"
+    },
+    { 
+        "name": "Sydney",
+        "zone": "Australia/Sydney",
+        "utc": "+10",
+        "id": "flag-btn-aus",
+        "flag": "&#127462;&#127482;"
+    },
+    { 
+        "name": "Tokyo",
+        "zone": "Asia/Tokyo",
+        "utc": "+9",
+        "id": "flag-btn-jp",
+        "flag": "&#127471;&#127477;"
+    }
+]

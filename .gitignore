@@ -35,5 +35,3 @@ src/pages/work/quiz.astro
 src/scripts/quiz.js
 src/pages/work/microbes.astro
 src/scripts/microbes.js
-src/pages/work/clocks.astro
-src/scripts/clocks.js

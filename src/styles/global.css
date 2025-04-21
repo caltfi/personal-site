@@ -272,60 +272,157 @@ body{
     }
 }
 /* Clock Project */
+#clock-control-panel{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    background-color: #fff8dc;
+    padding: 10px;
+}
 #clock-container{
-    height: 100vh; 
+    min-height: 100vh; 
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
     align-content:start;
-    padding: 20px 200px 0;
+    padding: 20px 100px 0;
+    background: #000036;
 }
 .clock-div{
-    border: 2px solid black;
+    border: thick solid #996515;
     width: fit-content;
     height: fit-content;
     margin: 0 20px 20px;
+    background: #fff8dc;
+    padding: 5px;
+    display: none;
 }
 .clock-face{
-    width: 200px;
-    height: 200px;
-    background-color: white;
-    border: thick double black;
+    width: 290px;
+    height: 290px;
+    background: no-repeat center/116% url("/public/assets/images/clockface.png");
+    /* background-color: #fff; */
+    border: 1.2rem solid rgb(46, 34, 15);
     border-radius: 50%;
-    margin: 50px;
+    margin: 30px 30px 20px 30px;
+    position: relative;
+    box-shadow: 
+        inset 30px 30px 80px rgba(0,0,0,0.2),
+        inset 5px 5px 20px rgba(0,0,0,0.5), 
+        10px 10px 30px rgba(0,0,0,0.4),
+        30px 30px 50px rgba(0,0,0,0.4);
 }
-.hour-labels{
+.clock-face .number {
+    --rotationVal: 0deg;
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Geneva';
+    transform: rotate(var(--rotationVal));
 }
-.hour-hand{
-    background-color: black;
-    width: 5%;
+.clock-face .number span {
+    display: inline-block;
+    transform: rotate(calc(-1 * var(--rotationVal)));
+    position: absolute;
+    top: 16px;
+    left: 47%;
+    transform-origin: center;
+}
+.clock-face .number1{  --rotationVal: 30deg; }
+.clock-face .number2{  --rotationVal: 60deg; }
+.clock-face .number3{  --rotationVal: 90deg; }
+.clock-face .number4{  --rotationVal: 120deg; }
+.clock-face .number5{  --rotationVal: 150deg; }
+.clock-face .number6{  --rotationVal: 180deg; }
+.clock-face .number7{  --rotationVal: 210deg; }
+.clock-face .number8{  --rotationVal: 240deg; }
+.clock-face .number9{  --rotationVal: 270deg; }
+.clock-face .number10{ --rotationVal: 300deg; }
+.clock-face .number11{ --rotationVal: 330deg; }
+.clock-face .number12{ --rotationVal: 360deg; }
+
+.clock-face::before{
+    content: '';
+    width: 106%;
+    height: 106%;
+    border-radius: 50%;
+    display: block;
+    background: transparent;
+    position:absolute;
+    top: -3%;
+    left: -3%;
+    box-shadow: -3px -3px 9px rgba(255,255,255,0.8);
+}
+
+.clock-face::after{
+    content: '';
+    position: absolute;
+    background-color: #000;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -5px 5px 6px rgba(0,0,0,0.4);
+}
+
+.clock-face .hand{
+    --rotationVal: 30;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translate(-50%) rotate(calc(var(--rotationVal)*1deg));
+    box-shadow: -6px 6px 6px rgba(0,0,0,0.4);
+}
+.clock-face .second-hand{
+    width: 4px;
+    height: 45%;
+    background-color: red;
+    box-shadow: -10px 10px 10px rgba(0,0,0,0.4);
+}
+.clock-face .minute-hand{
+    width: 8px;
     height: 40%;
-    position: relative;
-    bottom: -16%;
-    left: 48%;
+    background-color: #000;
 }
-.minute-hand{
-    background-color: black;
-    width: 2%;
-    height: 50%;
-    position: relative;
-    bottom: 34%;
-    left: 48%;
+.clock-face .hour-hand{
+    width: 10px;
+    height: 35%;
+    background-color: #000;
 }
 .clock-label{
     text-align: center;
     margin-bottom: 30px;
+    background-color: #2f2516 ;
+    margin: 0 20px 0;
+    padding: 10px;
+    position: relative;
+    box-shadow: -2px -2px #4b320b;
+    border-radius: 10px;
+}
+.clock-label h2, .clock-label h4 {
+    color: #f1ecd7;
+}
+.flag{
+    filter: drop-shadow(3px 3px black);
+    padding: 10px 20px 0 20px;
+    background-color: #232b2b;
 }
 /* Lava Lamp Project */
 #lava-lamp-container{
     height: 100vh; 
-    /* background-color: #8f00ff; */
     filter: contrast(30);
     position: relative;
 }

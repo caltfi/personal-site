@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../../layouts/baseLayout.astro";
+const pageTitle = "World Clocks";
+---
+<BaseLayout pageTitle={pageTitle}>
+    <div id="clock-control-panel">
+    </div>
+    <div id="clock-container">
+
+    </div>
+    <script>
+        async function getData() {
+            const res = await fetch("/json/timezones.json");
+            return await res.json()
+        };
+        async function init() {
+            const timeZoneArray = await getData();
+            createClocks(timeZoneArray);
+            setClock();
+            setInterval(setClock, 1000);
+        };
+        function createClocks(timeZoneArray){
+            //make control panel
+            const controlPanel = document.querySelector('#clock-control-panel')
+            const controlPanelLabel = document.createElement('h1');
+            controlPanelLabel.style = "font-family:'Hanken Grotesk', Helvetica, sans-serif; margin-right:20px;"
+            controlPanelLabel.innerText = "Time Zones:";
+            controlPanel.appendChild(controlPanelLabel);
+            const controlForm = document.createElement('form');
+            controlPanel.appendChild(controlForm);
+            const buttonsField = document.createElement('fieldset');
+            controlForm.appendChild(buttonsField);
+            timeZoneArray.forEach((i) => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.className = 'btn-check';
+                checkbox.name = i.id;
+                checkbox.id = i.id;
+                checkbox.autocomplete = 'off';
+                buttonsField.appendChild(checkbox);
+                const checkboxLabel = document.createElement('label');
+                checkboxLabel.classList.add('btn', 'btn-outline-secondary', 'flag');
+                checkboxLabel.setAttribute('for', i.id);
+                const checkBoxLabelText = document.createElement('h2');
+                checkBoxLabelText.innerHTML = i.flag;
+                checkboxLabel.appendChild(checkBoxLabelText);
+                buttonsField.appendChild(checkboxLabel);
+            });
+            buttonsField.firstChild.checked = true;
+        
+            //make clocks
+            const container = document.querySelector('#clock-container');
+            timeZoneArray.map((i) => {
+                const clockDiv = document.createElement('div');
+                clockDiv.classList.add('clock-div', 'hidden');
+                clockDiv.id = i.id + '-div';
+                container.appendChild(clockDiv);
+                const clockFace = document.createElement('div');
+                clockFace.className = 'clock-face';
+                clockFace.id = i.id + '-clock';
+                clockFace.dataset.zone = i.zone;
+                clockDiv.appendChild(clockFace);
+                for(let i = 1; i < 13; i++){
+                    const numberDiv = document.createElement('div');
+                    numberDiv.classList.add('number', `number${i}`);
+                    clockFace.appendChild(numberDiv);
+                    const numberSpan = document.createElement('span');
+                    numberSpan.innerText = i;
+                    numberDiv.appendChild(numberSpan);
+                };
+                const hourHand = document.createElement('div');
+                hourHand.classList.add('hand', 'hour-hand');
+                clockFace.appendChild(hourHand);
+                const minuteHand = document.createElement('div');
+                minuteHand.classList.add('hand', 'minute-hand');
+                clockFace.appendChild(minuteHand);
+                const secondHand = document.createElement('div');
+                secondHand.classList.add('hand', 'second-hand');
+                clockFace.appendChild(secondHand);
+                const labelDiv = document.createElement('div');
+                labelDiv.className = 'clock-label';
+                clockDiv.appendChild(labelDiv);
+                const nameText = document.createElement('h2');
+                nameText.innerText = i.name;
+                labelDiv.appendChild(nameText);
+                const utcText = document.createElement('h4');
+                utcText.innerText = `UTC ${i.utc}`;
+                labelDiv.appendChild(utcText);
+            });
+
+            //control panel event listener
+            const checkboxes = document.querySelectorAll('.btn-check');
+            checkboxes.forEach((box) => {
+                box.addEventListener('change', () => {
+                    const timezone = timeZoneArray.find((t) => t.id === box.id);
+                    if(!timezone) return;
+
+                    const clockDiv = document.querySelector(`#${timezone.id}-div`);
+                    if(box.checked){
+                        clockDiv.style.display = 'block';
+                    }else{
+                        clockDiv.style.display = 'none';
+                    };
+                });
+            });
+            checkboxes.forEach((box) => {
+                box.dispatchEvent(new Event('change'));
+            });
+        };
+
+        function setClock(){
+            const currentDate = new Date();
+            const clocks      = Array.from(document.querySelectorAll('.clock-face'));
+            const secondHands = Array.from(document.querySelectorAll('.second-hand'));
+            const minuteHands = Array.from(document.querySelectorAll('.minute-hand'));
+            const hourHands   = Array.from(document.querySelectorAll('.hour-hand'));
+            clocks.forEach((clock) => {
+                const timeZone = new Intl.DateTimeFormat('en-IE', {
+                    timeZone: clock.dataset.zone,
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric'
+                });
+                const dateParts = timeZone.formatToParts(currentDate);
+
+                const hour   = Number(dateParts.find(p => p.type === 'hour')?.value);
+                const minute = Number(dateParts.find(p => p.type === 'minute')?.value);
+                const second = Number(dateParts.find(p => p.type === 'second')?.value);
+
+                const secondsRatio = second / 60;
+                const minutesRatio = (secondsRatio + minute) / 60;
+                const hoursRatio = ((minutesRatio + hour) / 12);
+
+                const secondHand = clock.querySelector('.second-hand');
+                const minuteHand = clock.querySelector('.minute-hand');
+                const hourHand   = clock.querySelector('.hour-hand');
+
+                setHandRotation(secondHand, secondsRatio);
+                setHandRotation(minuteHand, minutesRatio);
+                setHandRotation(hourHand, hoursRatio);
+            });
+
+        };
+        function setHandRotation(hand, rotationRatio){
+            hand.style.setProperty('--rotationVal', rotationRatio * 360);
+        };
+
+        init();
+    </script>
+
+    <style>
+        *, *::after, *::before {
+            box-sizing: border-box;
+            font-family: Times, serif;
+        }
+    </style>
+
+</BaseLayout>
