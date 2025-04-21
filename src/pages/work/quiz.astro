@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/baseLayout.astro";
+const pageTitle = "Quiz in JavaScript";
+---
+<BaseLayout pageTitle={pageTitle}>
+    <style>
+        body{
+            overflow: hidden;
+        }
+
+    </style>
+
+    <div id="quiz-container">
+        <div id="character-container">
+            <div id="speech-bubble">
+                <h2 id="feedback"></h2>
+            </div>
+            <div id="teacher"></div>
+        </div>
+        <div id="q-a-container">
+            <div id="blackboard">
+                <h2 id="blackboard-text"></h2>
+            </div> 
+            <div id="buttons-container"></div>
+            <div id="restart-container">
+                <button class="button-54" id="restart-button">Restart</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="../../scripts/quiz.js" ></script>
+</BaseLayout>
