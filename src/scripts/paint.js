@@ -4,7 +4,6 @@ let isPainting = false;
 const container = document.querySelector('.canvas-container');
 const canvas = document.createElement('canvas');
 canvas.id = 'paint-canvas';
-//canvas.style.backgroundColor = '#fff';
 canvas.style.border = '8px solid rgb(210, 183, 142)';
 canvas.style.borderRadius = '2px';
 const canWidth = window.getComputedStyle(container).width;
