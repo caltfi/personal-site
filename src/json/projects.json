@@ -24,7 +24,49 @@
     "light": true
 },
 {
+    "text": "Pixel Painter App",
+    "img": "/assets/images/project_cards/paint_card.jpg",
+    "url": "/work/pixelpainter",
+    "light": true
+},
+{
+    "text": "Turing Machine",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
     "text": "Microscope Simulator",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Game Of Life",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Cadavre Exquis",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "3D Dice Roller",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "CSS Animation Showcase",
+    "img": "/assets/images/laptop_cube.png",
+    "url": "/work/microbes",
+    "light": true
+},
+{
+    "text": "Bitcoin Price Tracker",
     "img": "/assets/images/laptop_cube.png",
     "url": "/work/microbes",
     "light": true

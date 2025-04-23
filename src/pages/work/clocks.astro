@@ -47,7 +47,6 @@ const pageTitle = "World Clocks";
                 buttonsField.appendChild(checkboxLabel);
             });
             buttonsField.firstChild.checked = true;
-        
             //make clocks
             const container = document.querySelector('#clock-container');
             timeZoneArray.map((i) => {
@@ -87,7 +86,6 @@ const pageTitle = "World Clocks";
                 utcText.innerText = `UTC ${i.utc}`;
                 labelDiv.appendChild(utcText);
             });
-
             //control panel event listener
             const checkboxes = document.querySelectorAll('.btn-check');
             checkboxes.forEach((box) => {
@@ -107,7 +105,6 @@ const pageTitle = "World Clocks";
                 box.dispatchEvent(new Event('change'));
             });
         };
-
         function setClock(){
             const currentDate = new Date();
             const clocks      = Array.from(document.querySelectorAll('.clock-face'));
@@ -122,29 +119,23 @@ const pageTitle = "World Clocks";
                     second: 'numeric'
                 });
                 const dateParts = timeZone.formatToParts(currentDate);
-
                 const hour   = Number(dateParts.find(p => p.type === 'hour')?.value);
                 const minute = Number(dateParts.find(p => p.type === 'minute')?.value);
                 const second = Number(dateParts.find(p => p.type === 'second')?.value);
-
                 const secondsRatio = second / 60;
                 const minutesRatio = (secondsRatio + minute) / 60;
                 const hoursRatio = ((minutesRatio + hour) / 12);
-
                 const secondHand = clock.querySelector('.second-hand');
                 const minuteHand = clock.querySelector('.minute-hand');
                 const hourHand   = clock.querySelector('.hour-hand');
-
                 setHandRotation(secondHand, secondsRatio);
                 setHandRotation(minuteHand, minutesRatio);
                 setHandRotation(hourHand, hoursRatio);
             });
-
         };
         function setHandRotation(hand, rotationRatio){
             hand.style.setProperty('--rotationVal', rotationRatio * 360);
         };
-
         init();
     </script>
 

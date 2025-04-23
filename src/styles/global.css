@@ -1,4 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+@import url(https://fonts.googleapis.com/css?family=VT323);
 
 body{
     font-family: 'Hanken Grotesk', Helvetica, sans-serif;
@@ -425,4 +426,172 @@ body{
     height: 100vh; 
     filter: contrast(30);
     position: relative;
+}
+/* Painting App Project */
+#paint-app-container{
+    max-height: 100vh;
+    width: 100%;
+    background-color: rgb(255,222,173);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.canvas-container {
+    padding: 30px;
+}
+.control-container {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#controls{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.paint-btn{
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 2.2rem;
+	margin: 1rem;
+	min-width: 200px;
+	padding: .5rem;
+	text-transform: uppercase;
+	width: auto;
+    font-family: 'VT323', monospace ;
+	font-size: 24px;
+    text-decoration: none;
+    color: white;
+    background: #7C7C7C;
+	border-bottom: 6px inset rgba(0,0,0,.5);
+	border-left: 6px inset rgba(0,0,0,.5);
+	border-right: 6px inset rgba(255,255,255,.5);
+	border-top: 6px inset rgba(255,255,255,.5);
+    text-align: center;
+}
+.paint-btn:focus, .paint-btn:hover {
+    background: #BCBCBC;
+}
+.paint-btn.brush{
+    margin-top: 0;
+}
+.paint-btn.brush:focus, .paint-btn.brush:hover{
+    background: #7C7C7C;
+    cursor:default;
+}
+.paint-btn.clear{
+    background: #881400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.paint-btn.clear:focus, .paint-btn.clear:hover{
+    background: #A81000;
+}
+.paint-btn.save{
+    background: #005800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.paint-btn.clear svg, .paint-btn.save svg{
+    margin-right: 15px;
+}
+.paint-btn.save:focus, .paint-btn.save:hover{
+    background: #006800;
+}
+#brush-control-div{
+    display: flex;
+    flex-flow: column nowrap;
+}
+#colours{
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+.colour-btn{
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0;
+    border: 2px solid black;
+    text-decoration: none;
+    height: 40px;
+    width: 40px;
+}
+.colour-btn:focus, .colour-btn:hover{
+    border: 5px solid rgb(239, 244, 204);
+}
+#brush-width-slider { 
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 0;
+    border: 2px solid #000;
+}
+
+
+#brush-width-slider::-webkit-slider-runnable-track {
+    background: rgb(210, 183, 142);
+}
+
+#brush-width-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; /* 1 */
+    height: 40px;
+    background: rgb(255,239,213);
+    box-shadow: -200px 0 0 200px rgb(210, 183, 142); /* 2 */
+    border: 2px solid #000; /* 1 */
+}
+
+#brush-width-slider::-moz-range-track {
+    height: 40px;
+    background: rgb(210, 183, 142);
+}
+
+#brush-width-slider::-moz-range-thumb {
+    background: rgb(255,239,213);
+    height: 40px;
+    width: 20px; /* 1 */
+    border: 3px solid #000; /* 1 */
+    border-radius: 0 !important;
+    box-shadow: -200px 0 0 200px rgb(210, 183, 142);
+    box-sizing: border-box;
+}
+
+#brush-width-slider::-ms-fill-lower { 
+    background: rgb(210, 183, 142);
+}
+
+#brush-width-slider::-ms-thumb { 
+    background: rgb(255,239,213);
+    border: 2px solid #000; /* 1 */
+    height: 40px;
+    width: 20px; /* 1 */
+    box-sizing: border-box;
+}
+
+#brush-width-slider::-ms-ticks-after { 
+    display: none; 
+}
+
+#brush-width-slider::-ms-ticks-before { 
+    display: none; 
+}
+
+#brush-width-slider::-ms-track { 
+    background: rgb(210, 183, 142);
+    color: transparent;
+    height: 40px;
+    border: none;
+}
+
+#brush-width-slider::-ms-tooltip { 
+    display: none;
 }
