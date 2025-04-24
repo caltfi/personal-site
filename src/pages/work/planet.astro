@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../../layouts/baseLayout.astro";
 const pageTitle = "Planet in Three.js";
+const noNavBar = 'display: none;';
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} noNavBar={noNavBar} >
 
     <div id="planet-container" style="height: 100vh; width: 100%;"></div>
     <script src="../../scripts/planet.js" ></script>

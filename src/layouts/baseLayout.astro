@@ -1,13 +1,13 @@
 ---
 import Navbar from '../components/navigation.astro';
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+const { pageTitle, noNavBar } = Astro.props;
 ---
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calum Fenton - {pageTitle}</title>
+        <title>{pageTitle}</title>
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
         <!-- Web App Manifest Favicon -->
@@ -24,7 +24,7 @@ const { pageTitle } = Astro.props;
         <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
   <body>
-    <Navbar />
+    <Navbar noNavBar={noNavBar} />
 
     <slot />
 

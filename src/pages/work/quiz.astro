@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../../layouts/baseLayout.astro";
 const pageTitle = "Quiz in JavaScript";
+const noNavBar = 'display: none;';
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} noNavBar={noNavBar} >
     <style>
         body{
             overflow: hidden;
         }
-
     </style>
 
     <div id="quiz-container">

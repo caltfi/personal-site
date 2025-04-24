@@ -1,14 +1,15 @@
 ---
 import BaseLayout from "../../layouts/baseLayout.astro";
 const pageTitle = "Pixel Painter App";
+const noNavBar = 'display: none;';
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} noNavBar={noNavBar} >
 
     <div id="paint-app-container">
         <div class="control-container col-2">
             
             <div id="controls">
-                <h1 style="font-size: xx-large; text-align:center; font-family: 'Comic Sans MS', 'Comic Sans', cursive; margin-bottom: 20px;">Let's Paint!</h1>
+                <h1 style="font-size: xx-large; text-align:center; font-family: 'VT323', monospace; margin-bottom: 20px;">Let's Paint!</h1>
                 <div id="colours">
                     <a class="colour-btn" style="background-color: rgb(36,33,36);" id="black" data-colour="rgb(36,33,36)"></a>
                     <a class="colour-btn" style="background-color: rgb(255,250,240);" id="white" data-colour="rgb(255,250,240)"></a>
@@ -27,18 +28,21 @@ const pageTitle = "Pixel Painter App";
                     </a>
                 </div>
                 
-                <a class="paint-btn clear">
-                    <svg fill="#fff" width="25px" height="25px"  viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M42,3H28a2,2,0,0,0-2-2H22a2,2,0,0,0-2,2H6A2,2,0,0,0,6,7H42a2,2,0,0,0,0-4Z"/><path d="M39,9a2,2,0,0,0-2,2V43H11V11a2,2,0,0,0-4,0V45a2,2,0,0,0,2,2H39a2,2,0,0,0,2-2V11A2,2,0,0,0,39,9Z"/><path d="M21,37V19a2,2,0,0,0-4,0V37a2,2,0,0,0,4,0Z"/><path d="M31,37V19a2,2,0,0,0-4,0V37a2,2,0,0,0,4,0Z"/>
-                    </svg>
-                    CLEAR
-                </a>
-                <a class="paint-btn save">
-                    <svg width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 2C4.20435 2 3.44129 2.31607 2.87868 2.87868C2.31607 3.44129 2 4.20435 2 5V19C2 19.7957 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7957 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7957 22 19V8C22 7.73478 21.8946 7.48043 21.7071 7.29289L16.7071 2.29289C16.5196 2.10536 16.2652 2 16 2H5ZM5 4C4.73478 4 4.48043 4.10536 4.29289 4.29289C4.10536 4.48043 4 4.73478 4 5V19C4 19.2652 4.10536 19.5196 4.29289 19.7071C4.48043 19.8946 4.73478 20 5 20H6V13C6 12.4477 6.44772 12 7 12H17C17.5523 12 18 12.4477 18 13V20H19C19.2652 20 19.5196 19.8946 19.7071 19.7071C19.8946 19.5196 20 19.2652 20 19V8.41421L15.5858 4H9V7H16C16.5523 7 17 7.44772 17 8C17 8.55228 16.5523 9 16 9H8C7.44772 9 7 8.55228 7 8V4H5ZM8 14V20H16V14H8Z" fill="#fff"/>
-                    </svg>
-                    SAVE
-                </a>
+                <div style="display: flex; flex-flow: column nowrap; justify-content: center; align-items:center;">
+                    <a class="paint-btn clear">
+                        <svg fill="#fff" width="25px" height="25px"  viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M42,3H28a2,2,0,0,0-2-2H22a2,2,0,0,0-2,2H6A2,2,0,0,0,6,7H42a2,2,0,0,0,0-4Z"/><path d="M39,9a2,2,0,0,0-2,2V43H11V11a2,2,0,0,0-4,0V45a2,2,0,0,0,2,2H39a2,2,0,0,0,2-2V11A2,2,0,0,0,39,9Z"/><path d="M21,37V19a2,2,0,0,0-4,0V37a2,2,0,0,0,4,0Z"/><path d="M31,37V19a2,2,0,0,0-4,0V37a2,2,0,0,0,4,0Z"/>
+                        </svg>
+                        CLEAR
+                    </a>
+                    <a class="paint-btn save">
+                        <svg width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 2C4.20435 2 3.44129 2.31607 2.87868 2.87868C2.31607 3.44129 2 4.20435 2 5V19C2 19.7957 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7957 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7957 22 19V8C22 7.73478 21.8946 7.48043 21.7071 7.29289L16.7071 2.29289C16.5196 2.10536 16.2652 2 16 2H5ZM5 4C4.73478 4 4.48043 4.10536 4.29289 4.29289C4.10536 4.48043 4 4.73478 4 5V19C4 19.2652 4.10536 19.5196 4.29289 19.7071C4.48043 19.8946 4.73478 20 5 20H6V13C6 12.4477 6.44772 12 7 12H17C17.5523 12 18 12.4477 18 13V20H19C19.2652 20 19.5196 19.8946 19.7071 19.7071C19.8946 19.5196 20 19.2652 20 19V8.41421L15.5858 4H9V7H16C16.5523 7 17 7.44772 17 8C17 8.55228 16.5523 9 16 9H8C7.44772 9 7 8.55228 7 8V4H5ZM8 14V20H16V14H8Z" fill="#fff"/>
+                        </svg>
+                        SAVE
+                    </a>
+                </div>
+
 
             </div>
                 

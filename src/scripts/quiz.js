@@ -33,10 +33,16 @@ function updateTeacherImage(){
         teacherImage.style.backgroundImage = teacherMoods[1];
         teacherImage.className = 'angry';
         teacherImage.classList.remove('happy');
+        setTimeout(() => {
+            teacherImage.classList.remove('angry');
+        }, 130);
     }else{
         teacherImage.style.backgroundImage = teacherMoods[0];
         teacherImage.classList.remove('angry');
         teacherImage.className = 'happy';
+        setTimeout(() => {
+            teacherImage.classList.remove('happy');
+        }, 130);
     }
 }
 

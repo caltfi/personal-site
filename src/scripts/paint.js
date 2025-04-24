@@ -11,7 +11,7 @@ const canHeight = window.getComputedStyle(container).height;
 const w = Math.floor(Number(canWidth.substring(0, canWidth.length - 2)));
 const h = Math.floor(Number(canHeight.substring(0, canHeight.length - 2)));
 canvas.setAttribute('width', w);
-canvas.setAttribute('height', h);
+canvas.setAttribute('height', '900px');
 container.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 clearCanvas();
@@ -68,8 +68,20 @@ function saveImage(){
 
 colourButtons.forEach((button) => { button.addEventListener('click', changeColour); });
 brushWidthSlider.addEventListener('change', setBrushWidth);
-clearButton.addEventListener('click', clearCanvas);
-saveButton.addEventListener('click', saveImage);
+clearButton.addEventListener('click', () => {
+    clearButton.classList.add('happy');
+    setTimeout(() => {
+        clearButton.classList.remove('happy');
+    }, 130);
+    clearCanvas();
+});
+saveButton.addEventListener('click', () => {
+    saveButton.classList.add('happy');
+    setTimeout(() => {
+        saveButton.classList.remove('happy');
+    }, 130);
+    saveImage();
+});
 canvas.addEventListener("mouseover", () => { canvas.style.cursor = `url('/assets/cursors/paint_cursor_${colourName}.svg'), auto` });
 canvas.addEventListener("mousedown", startPaint);
 canvas.addEventListener("mousemove", painting);

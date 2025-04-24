@@ -30,9 +30,15 @@
     "light": true
 },
 {
+    "text": "Doodle Relay!",
+    "img": "/assets/images/project_cards/spy_card.jpg",
+    "url": "/work/doodlerelay",
+    "light": true
+},
+{
     "text": "Turing Machine",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/turing",
     "light": true
 },
 {
@@ -44,61 +50,55 @@
 {
     "text": "Game Of Life",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
-    "light": true
-},
-{
-    "text": "Cadavre Exquis",
-    "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/gameoflife",
     "light": true
 },
 {
     "text": "3D Dice Roller",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/diceroller",
     "light": true
 },
 {
     "text": "CSS Animation Showcase",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/cssanimations",
     "light": true
 },
 {
     "text": "Bitcoin Price Tracker",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/btctracker",
     "light": true
 },
 {
     "text": "Ant Farm",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/antfarm",
     "light": true
 },
 {
     "text": "Solitaire",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/solitaire",
     "light": true
 },
 {
     "text": "Napoleonic Map",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/napoleon",
     "light": true
 },
 {
     "text": "Fossil Digging Game",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/fossils",
     "light": true
 },
 {
     "text": "D3 Project Statistics",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/work/statistics",
     "light": true
 }
 ]

@@ -31,5 +31,5 @@ src/pages/work/cube.astro
 src/scripts/cubegame.js
 src/pages/work/microbes.astro
 src/scripts/microbes.js
-src/pages/work/cadavre.astro
-src/scripts/cadavre.js
+src/pages/work/doodlerelay.astro
+src/scripts/doodle_relay.js
