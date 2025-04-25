@@ -38,67 +38,67 @@
 {
     "text": "Turing Machine",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/turing",
+    "url": "/work",
     "light": true
 },
 {
     "text": "Microscope Simulator",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/microbes",
+    "url": "/worke",
     "light": true
 },
 {
     "text": "Game Of Life",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/gameoflife",
+    "url": "/work",
     "light": true
 },
 {
     "text": "3D Dice Roller",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/diceroller",
+    "url": "/work",
     "light": true
 },
 {
     "text": "CSS Animation Showcase",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/cssanimations",
+    "url": "/work",
     "light": true
 },
 {
     "text": "Bitcoin Price Tracker",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/btctracker",
+    "url": "/work",
     "light": true
 },
 {
     "text": "Ant Farm",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/antfarm",
+    "url": "/work",
     "light": true
 },
 {
     "text": "Solitaire",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/solitaire",
+    "url": "/work",
     "light": true
 },
 {
     "text": "Napoleonic Map",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/napoleon",
+    "url": "/work",
     "light": true
 },
 {
     "text": "Fossil Digging Game",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/fossils",
+    "url": "/work",
     "light": true
 },
 {
     "text": "D3 Project Statistics",
     "img": "/assets/images/laptop_cube.png",
-    "url": "/work/statistics",
+    "url": "/work",
     "light": true
 }
 ]
